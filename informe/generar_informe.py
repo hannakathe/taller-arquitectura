@@ -109,7 +109,7 @@ def construir():
     d.p("EventFlow es un sistema (muy) simple de venta de entradas a eventos. Las herramientas usadas fueron Trello (gestión "
         "ágil), diagrams.net como alternativa a Miro (modelado), Figma (UX), GitHub y GitHub Actions (código y CI/CD), "
         "SonarCloud (deuda técnica), Google Cloud Shell con Terraform (IaC) y Swagger Hub (diseño de API). Todos los artefactos "
-        "están en el repositorio `taller-arquitectura`: [[URL DEL REPOSITORIO EN GITHUB]].")
+        "están en el repositorio `taller-arquitectura`: https://github.com/hannakathe/taller-arquitectura.")
 
     d.h2("Fundamentos")
     d.h3("Requisitos No Funcionales (Lluvia de Ideas)")
@@ -310,7 +310,7 @@ def construir():
              "Pestaña Actions con al menos 2 ejecuciones en verde (commit inicial y cambio a 2026) | Captura de pantalla de GitHub Actions.", expect_num=13)
     d.figure("capturas/fig14_github_actions_run.png", "Detalle de la Ejecución con los Jobs build y test",
              "Grafo del run: build → test, ambos con ✓ verde | Captura de pantalla de GitHub Actions.", expect_num=14)
-    d.figure("capturas/fig15_github_actions_logs.png", "Log del Job test con las Pruebas Simuladas Superadas",
+    d.figure("capturas/fig15_github_actions_logs.png", "Pasos del Job test (Checkout, Linting, Unit Test y Despliegue Simulado) Ejecutados con Éxito",
              "Log del job test expandido mostrando “Prueba de 'Linting' pasada” y “¡Pruebas exitosas!” | Captura de pantalla de GitHub Actions.", expect_num=15)
     d.h3("Paso 4: Infraestructura como Código con Terraform en Google Cloud Shell")
     d.p("La infraestructura como código (IaC) consiste en definir servidores, redes y reglas en archivos versionados en lugar "

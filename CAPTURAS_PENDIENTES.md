@@ -8,69 +8,10 @@ Guarda cada captura **con el nombre exacto** en la carpeta `capturas/` (PNG). Cu
 
 ---
 
-## Paso 0 — Subir el repositorio a GitHub (lo debes hacer tú: requiere tu cuenta)
-
-`gh` (GitHub CLI) no está instalado en este equipo, así que no pude crear el repositorio ni disparar Actions.
-El repo local ya está listo en `taller-arquitectura/` con 3 commits:
-
-1. `feat: EventFlow inicial` (index.html, ci.yml, main.tf, openapi.yaml)
-2. `chore: actualizar copyright a 2026` (el cambio que dispara el pipeline)
-3. `docs: diagramas, wireframes, informe y guías`
-
-**Opción A — con GitHub CLI (recomendada):** abre una terminal en `taller-arquitectura/`:
-
-```bash
-winget install --id GitHub.cli
-```
-
-```bash
-gh auth login
-```
-
-```bash
-gh repo create taller-arquitectura --public --source=. --remote=origin
-```
-
-Ahora empuja **primero solo el commit 1** (genera la ejecución n.º 1 de Actions) y luego el resto (ejecución n.º 2):
-
-```bash
-git push origin 5e80853:refs/heads/main
-```
-
-```bash
-git push -u origin main
-```
-
-```bash
-gh run list
-```
-
-```bash
-gh run watch
-```
-
-**Opción B — sin CLI:** crea en github.com un repositorio vacío y público llamado `taller-arquitectura`
-(sin README ni .gitignore), y luego:
-
-```bash
-git remote add origin https://github.com/TU_USUARIO/taller-arquitectura.git
-```
-
-```bash
-git push origin 5e80853:refs/heads/main
-```
-
-```bash
-git push -u origin main
-```
-
-Después, en el informe, reemplaza el marcador amarillo `[URL DEL REPOSITORIO EN GITHUB]` (sección Ejercicio 1)
-editando la línea correspondiente de `informe/generar_informe.py` o directamente en Word.
-
-> ⚠ La carpeta `taller-arquitectura/` es un repositorio git propio dentro de tu repo `UMB`. No hagas `git add`
-> de esta carpeta desde el repo `UMB` (quedaría como "submódulo" vacío); súbela solo como repo independiente.
-
----
+## Paso 0 — Repositorio en GitHub ✅ HECHO
+Repositorio público: **https://github.com/hannakathe/taller-arquitectura** (creado el 13/10/2026).
+GitHub Actions corrió 2 veces y ambas en verde ✅: ejecución #1 (commit inicial) y #2 (copyright 2026 + documentos).
+Ya se capturaron automáticamente `fig10`, `fig13`, `fig14` y `fig15` (ítems 4, 7, 8 y 9 abajo).
 
 ## ✅ Checklist en el orden del informe
 
@@ -103,7 +44,7 @@ editando la línea correspondiente de `informe/generar_informe.py` o directament
   renderizado, abre cada `.drawio` (01 a 10) y expórtalo con *Archivo → Exportar como → PNG* sobrescribiendo
   `diagramas/NN_nombre.png`.
 
-### 4. `fig10_github_repo.png` — GitHub: página del repositorio
+### ✅ HECHO — 4. `fig10_github_repo.png` — GitHub: página del repositorio
 - **Pasos:** tras el Paso 0, abre `https://github.com/TU_USUARIO/taller-arquitectura`.
 - **Qué debe verse:** la lista de archivos (`index.html`, `main.tf`, `.github/workflows`, `diagramas/`…),
   el último commit y el contador de commits.
@@ -127,15 +68,16 @@ editando la línea correspondiente de `informe/generar_informe.py` o directament
   Haz clic en uno de `index.html` para que se vea la línea marcada (ideal: el `<style>` anidado o el `onclick`).
 - **Qué debe verse:** la lista de issues de `index.html` con su severidad y esfuerzo estimado.
 
-### 7. `fig13_github_actions_lista.png` — GitHub Actions: lista de ejecuciones
+### ✅ HECHO — 7. `fig13_github_actions_lista.png` — GitHub Actions: lista de ejecuciones
 - **Pasos:** repo → pestaña **Actions** → workflow **Taller CI Pipeline**.
 - **Qué debe verse:** al menos 2 ejecuciones en verde (commit inicial y "actualizar copyright a 2026").
 
-### 8. `fig14_github_actions_run.png` — GitHub Actions: detalle del run
+### ✅ HECHO — 8. `fig14_github_actions_run.png` — GitHub Actions: detalle del run
 - **Pasos:** clic en la ejecución "chore: actualizar copyright a 2026" (o la más reciente).
 - **Qué debe verse:** el grafo **build → test** con ambos jobs en ✓ verde y la duración.
 
-### 9. `fig15_github_actions_logs.png` — GitHub Actions: logs del job test
+### ✅ HECHO (opcional mejorarla) — 9. `fig15_github_actions_logs.png` — GitHub Actions: logs del job test
+- Se capturó la lista de pasos en verde. Si quieres que se vea el texto de los logs, inicia sesión en GitHub, expande los pasos y reemplaza el archivo.
 - **Pasos:** en ese run, clic en el job **test** → expande los pasos "2. Simular pruebas (Linting)",
   "3. Simular pruebas de unidad" y "4. ¡Despliegue simulado!".
 - **Qué debe verse:** los textos "Prueba de 'Linting' pasada.", "Prueba de 'Copyright' pasada." y
@@ -227,4 +169,4 @@ python informe/generar_informe.py
 
 Genera `informe/Informe_Taller_Arquitectura.docx` y `.pdf` (con Word), actualiza la tabla de contenido y lista
 en consola las capturas que aún falten. Antes de entregar, llena en amarillo **[ASIGNATURA]**, **[DOCENTE]** y
-**[URL DEL REPOSITORIO EN GITHUB]** (en `generar_informe.py` para que no se pierdan al regenerar).
+(la URL del repo ya quedó puesta) (en `generar_informe.py` para que no se pierdan al regenerar).
